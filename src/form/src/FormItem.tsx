@@ -321,7 +321,9 @@ export default defineComponent({
                   if (transformedMessage.startsWith('__renderMessage__')) {
                     return messageRenderers[transformedMessage]()
                   }
-                  return transformedMessage
+                  return props.label
+                    ? transformedMessage.replace(mergedPath, props.label)
+                    : transformedMessage
                 }
               }
             })
